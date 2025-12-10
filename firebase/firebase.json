@@ -1,0 +1,46 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+    // Realtime Database security rules
+    // Old cluster rules removed - configure new rules for Puzzly
+  },
+  "storage": {
+    "rules": "storage.rules"
+    // Firebase Storage security rules (create this file if needed)
+    // Old cluster storage rules removed - configure new rules for Puzzly
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run lint",
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ]
+      // Cloud Functions configuration
+      // Old cluster functions removed - configure new functions for Puzzly
+    }
+  ],
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+    // Hosting configuration (optional for Puzzly mobile app)
+    // Can be used for web admin panel or landing page
+  }
+}
