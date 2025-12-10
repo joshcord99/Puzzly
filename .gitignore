@@ -119,6 +119,22 @@ dist
 # Firebase cache directory
 .firebase/
 
+# Firebase secrets and configuration files
+**/GoogleService-Info.plist
+**/google-services.json
+**/firebase-service-account.json
+**/firebase-adminsdk-*.json
+firebase/functions/.env
+firebase/functions/.env.local
+firebase/functions/.env.*.local
+
+# API keys and secrets in config files
+**/config.local.ts
+**/config.local.js
+**/*.secret.*
+**/*.key
+**/*.pem
+
 # TernJS port file
 .tern-port
 
@@ -137,3 +153,38 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# React Native
+mobile/ios/build/
+mobile/ios/Pods/
+mobile/ios/*.xcworkspace
+mobile/ios/*.xcuserdata
+mobile/ios/*.xcuserdatad
+mobile/android/app/build/
+mobile/android/.gradle/
+mobile/android/local.properties
+mobile/android/app/release/
+
+# Xcode
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# CocoaPods
+mobile/ios/Podfile.lock
+
+# Secrets and credentials
+*.p12
+*.mobileprovision
+*.certSigningRequest
+*.cer
+*.keystore
+*.jks
+secrets/
+credentials/
+*.secret
+*.private

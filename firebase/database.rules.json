@@ -1,0 +1,37 @@
+{
+  "rules": {
+    "users": {
+      "$userId": {
+        ".read": "$userId === auth.uid",
+        ".write": "$userId === auth.uid",
+        ".validate": "newData.hasChildren(['displayName', 'email', 'createdAt']) && newData.child('displayName').isString() && newData.child('email').isString()"
+      }
+    },
+    "sessions": {
+      "$sessionId": {
+        ".read": "data.child('participants').child(auth.uid).exists()",
+        ".write": "data.child('participants').child(auth.uid).exists()",
+        ".validate": "newData.hasChildren(['hostId', 'participants', 'puzzleId', 'status', 'createdAt'])",
+        "participants": {
+          "$participantId": {
+            ".validate": "$participantId === auth.uid || newData.val() === true"
+          }
+        },
+        "puzzleState": {
+          "pieces": {
+            "$pieceId": {
+              ".validate": "newData.hasChildren(['position', 'rotation', 'placed', 'lastModified']) && newData.child('position').hasChildren(['x', 'y'])"
+            }
+          }
+        }
+      }
+    },
+    "puzzles": {
+      "$puzzleId": {
+        ".read": "auth != null",
+        ".write": "auth != null",
+        ".validate": "newData.hasChildren(['imageUrl', 'totalPieces', 'difficulty', 'createdAt']) && newData.child('totalPieces').isNumber() && (newData.child('difficulty').val() === 'easy' || newData.child('difficulty').val() === 'medium' || newData.child('difficulty').val() === 'hard')"
+      }
+    }
+  }
+}
