@@ -2,29 +2,24 @@ rules_version = '2';
 
 service firebase.storage {
   match /b/{bucket}/o {
-    
-    // Puzzle images - authenticated users can read, only creators can write
     match /puzzle-images/{puzzleId} {
       allow read: if request.auth != null;
       allow write: if request.auth != null 
-                   && request.resource.size < 10 * 1024 * 1024; // Max 10MB
+                   && request.resource.size < 10 * 1024 * 1024;
     }
     
-    // Puzzle piece images - authenticated users can read, only creators can write
     match /puzzle-pieces/{puzzleId}/{pieceId} {
       allow read: if request.auth != null;
       allow write: if request.auth != null 
-                   && request.resource.size < 5 * 1024 * 1024; // Max 5MB per piece
+                   && request.resource.size < 5 * 1024 * 1024;
     }
     
-    // User avatars - users can read, only own avatar can be written
     match /user-avatars/{userId} {
       allow read: if request.auth != null;
       allow write: if request.auth != null && request.auth.uid == userId
-                   && request.resource.size < 2 * 1024 * 1024; // Max 2MB
+                   && request.resource.size < 2 * 1024 * 1024;
     }
     
-    // Default deny all other paths
     match /{allPaths=**} {
       allow read, write: if false;
     }

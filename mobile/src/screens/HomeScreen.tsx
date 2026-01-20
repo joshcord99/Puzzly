@@ -26,13 +26,11 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Recent Puzzles</Text>
-        {/* List of recent puzzles */}
         <Text style={styles.emptyText}>No recent puzzles</Text>
       </View>
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Active Sessions</Text>
-        {/* List of active collaboration sessions */}
         <Text style={styles.emptyText}>No active sessions</Text>
       </View>
     </ScrollView>

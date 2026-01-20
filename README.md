@@ -1,42 +1,54 @@
 # Puzzly
 
-A real-time collaborative puzzle application built with React Native and Swift for iOS. Users can add each other by unique IDs and work simultaneously on a shared canvas to solve puzzles together.
-
-## Technology Stack
-
-### Frontend
-
-- **React Native** (TypeScript) - iOS mobile framework
-- **React Navigation** - Screen navigation
-- **React Native Reanimated** - Smooth animations
-- **React Native Gesture Handler** - Touch gestures
-- **React Native SVG** or **React Native Skia** - Canvas rendering
-- **React Native Image Manipulator** - Image processing for puzzle generation
-
-### Backend & Real-time
-
-- **Firebase Realtime Database** - Real-time data synchronization
-- **Firebase Authentication** - User authentication and management
-- **Firebase Storage** - Image storage for puzzles
-- **Firebase Cloud Functions** (optional) - Server-side logic
-
-### Native iOS
-
-- **Swift** - iOS native modules and optimizations
-- **Objective-C** - Bridge between Swift and React Native (if required)
-
-## Project Structure
+## Folder Structure
 
 ```
-Puzzly/
-├── mobile/              # React Native application
+puzzly/
+├── mobile/                    # React Native mobile app
+│   ├── ios/                   # iOS native code
 │   ├── src/
-│   │   ├── components/  # UI components
-│   │   ├── screens/     # App screens
-│   │   ├── services/    # Business logic
-│   │   ├── hooks/       # Custom React hooks
-│   │   └── utils/       # Utilities
-│   └── ios/             # iOS native code
-├── firebase/            # Firebase configuration
-└── docs/               # Documentation
+│   │   ├── App.tsx
+│   │   ├── components/        # UI components
+│   │   │   ├── Canvas/
+│   │   │   ├── common/
+│   │   │   └── User/
+│   │   ├── hooks/            # Custom React hooks
+│   │   ├── navigation/      # Navigation setup
+│   │   ├── screens/          # App screens
+│   │   ├── services/         # Business logic
+│   │   │   ├── collaboration/
+│   │   │   ├── firebase/
+│   │   │   └── puzzle/
+│   │   └── utils/            # Utility functions
+│   ├── metro.config.js
+│   ├── package.json
+│   └── tsconfig.json
+│
+├── campnion-site/             # Next.js web companion site
+│   ├── public/
+│   ├── src/
+│   │   ├── app/              # Next.js app router
+│   │   ├── components/       # UI components
+│   │   │   ├── Canvas/
+│   │   │   ├── common/
+│   │   │   └── User/
+│   │   ├── hooks/           # Custom React hooks
+│   │   ├── pages/           # Page components
+│   │   ├── services/        # Business logic
+│   │   │   ├── collaboration/
+│   │   │   ├── firebase/
+│   │   │   └── puzzle/
+│   │   └── utils/           # Utility functions
+│   ├── next.config.js
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── tailwind.config.js
+│   └── tsconfig.json
+│
+└── database/                 # Database configuration
+    └── firebase/             # Firebase configuration
+        ├── database.rules.json
+        ├── firebase.json
+        ├── functions/        # Cloud Functions
+        └── storage.rules
 ```

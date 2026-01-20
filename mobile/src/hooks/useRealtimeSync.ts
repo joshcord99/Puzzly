@@ -10,17 +10,14 @@ export const useRealtimeSync = (sessionId: string) => {
   useEffect(() => {
     if (!sessionId) return;
 
-    // Subscribe to puzzle state changes
     const unsubscribeState = subscribeToPuzzleState(sessionId, (state) => {
       setPuzzleState(state);
     });
 
-    // Subscribe to participants changes
     const unsubscribeParticipants = subscribeToParticipants(sessionId, (participantsList) => {
       setParticipants(participantsList);
     });
 
-    // Check connection status
     setIsConnected(true);
 
     return () => {
@@ -30,9 +27,6 @@ export const useRealtimeSync = (sessionId: string) => {
   }, [sessionId]);
 
   const handleRemoteUpdate = (remoteState: PuzzleState) => {
-    // Merge remote state with local state
-    // Handle conflicts (use timestamp or last-write-wins)
-    // Update local state
     setPuzzleState(remoteState);
   };
 

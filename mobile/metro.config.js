@@ -1,7 +1,5 @@
-// Metro bundler configuration for React Native
-// JavaScript bundler settings
-// Asset resolution configuration
-// Source map generation
-// Transformer options
-// Watchman configuration
+const {getDefaultConfig, mergeConfig} = require('@react-native/metro-config');
 
+const config = {};
+
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);

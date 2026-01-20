@@ -12,17 +12,13 @@ export const ProfileScreen: React.FC<ProfileScreenProps> = ({ navigation }) => {
   const user = getCurrentUser();
 
   const handleEdit = () => {
-    // Navigate to edit profile screen
   };
 
   const handleShareId = () => {
-    // Share unique ID functionality
-    // Copy to clipboard or share via native share
   };
 
   const handleLogout = async () => {
     await signOut();
-    // Navigate to login screen or reset navigation
   };
 
   if (!user) {

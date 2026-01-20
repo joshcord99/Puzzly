@@ -11,7 +11,6 @@ export const useCollaboration = (sessionId?: string) => {
   useEffect(() => {
     if (!sessionId) return;
 
-    // Subscribe to session updates
     const unsubscribe = subscribeToSession(sessionId, (sessionData) => {
       setSession(sessionData);
       setParticipants(sessionData?.participants || []);
@@ -21,24 +20,12 @@ export const useCollaboration = (sessionId?: string) => {
   }, [sessionId]);
 
   const createSession = async (puzzleId: string, hostId: string) => {
-    // Create new collaboration session
-    // Set loading state
-    // Handle errors
-    // Return session object
   };
 
   const joinSession = async (sessionId: string, userId: string) => {
-    // Join existing session
-    // Set loading state
-    // Handle errors
-    // Return success status
   };
 
   const leaveSession = async (sessionId: string, userId: string) => {
-    // Leave current session
-    // Set loading state
-    // Handle errors
-    // Return success status
   };
 
   return {

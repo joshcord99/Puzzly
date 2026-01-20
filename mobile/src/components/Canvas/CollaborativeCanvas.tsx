@@ -22,17 +22,14 @@ export const CollaborativeCanvas: React.FC<CollaborativeCanvasProps> = ({
   if (!puzzleState) {
     return (
       <View style={styles.container}>
-        {/* Loading state */}
       </View>
     );
   }
 
   return (
     <View style={styles.container}>
-      {/* Background puzzle image */}
       <View style={styles.backgroundImage} />
 
-      {/* Render all puzzle pieces */}
       {Object.values(puzzleState.pieces).map((piece) => (
         <PuzzlePiece
           key={piece.id}

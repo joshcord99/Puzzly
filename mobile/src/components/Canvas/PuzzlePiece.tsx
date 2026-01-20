@@ -40,7 +40,6 @@ export const PuzzlePiece: React.FC<PuzzlePieceProps> = ({ piece, onMove, onRotat
   return (
     <GestureDetector gesture={panGesture}>
       <Animated.View style={[styles.piece, animatedStyle]}>
-        {/* Render piece image */}
         <View style={styles.pieceImage} />
         {piece.isPlaced && <View style={styles.placedIndicator} />}
       </Animated.View>

@@ -15,14 +15,10 @@ export const CollaborationScreen: React.FC<CollaborationScreenProps> = ({ naviga
   const { createSession, joinSession, participants } = useCollaboration();
 
   const handleCreateSession = async () => {
-    // Create new collaboration session
-    // Navigate to puzzle screen with sessionId
   };
 
   const handleJoinSession = async () => {
     if (!sessionIdInput.trim()) return;
-    // Join session by ID
-    // Navigate to puzzle screen
   };
 
   return (
@@ -60,14 +56,12 @@ export const CollaborationScreen: React.FC<CollaborationScreenProps> = ({ naviga
           variant="secondary"
           style={styles.button}
         />
-        {/* Display participants list */}
       </View>
 
       <AddUserModal
         visible={showAddUserModal}
         onClose={() => setShowAddUserModal(false)}
         onAddUser={(userId) => {
-          // Add user to session
         }}
       />
     </ScrollView>
